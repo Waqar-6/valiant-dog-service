@@ -25,12 +25,12 @@ public class Dog {
     private String fartherDog;
     private String motherDog;
 
-    public Dog(String name, DogBreed breed, String microchipNumber, String registrationNumber, GoverningBody governingBody, String owner, String breeder, LocalDate dateOfBirth, String fartherDog, String motherDog) {
+    public Dog(String name, DogBreed breed, String microchipNumber, GoverningBody governingBody, String registrationNumber, String owner, String breeder, LocalDate dateOfBirth, String fartherDog, String motherDog) {
         this.name = name;
         this.breed = breed;
         this.microchipNumber = microchipNumber;
-        this.registrationNumber = registrationNumber;
         this.governingBody = governingBody;
+        this.registrationNumber = registrationNumber;
         this.owner = owner;
         this.breeder = breeder;
         this.dateOfBirth = dateOfBirth;
