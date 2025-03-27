@@ -29,7 +29,7 @@ public class DogController {
     @PostMapping
     public ResponseEntity<ResponseDto> createDog (@Valid @RequestBody CreateDogRequest request) {
         dogService.createDog(request);
-        return new ResponseEntity<>(new ResponseDto(DogConstants.STATUS_200, DogConstants.MESSAGE_201), HttpStatus.CREATED);
+        return new ResponseEntity<>(new ResponseDto(DogConstants.STATUS_201, DogConstants.MESSAGE_201), HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -45,7 +45,7 @@ public class DogController {
     }
 
     @PutMapping("/{dogId}")
-    public ResponseEntity<ResponseDto> updateDog (@Valid CreateDogRequest request, @PathVariable UUID dogId) {
+    public ResponseEntity<ResponseDto> updateDog (@Valid @RequestBody CreateDogRequest request, @PathVariable UUID dogId) {
         boolean isUpdated = dogService.updateDog(request, dogId);
         return isUpdated ? new ResponseEntity<>(new ResponseDto(DogConstants.STATUS_200, DogConstants.MESSAGE_200_UPDATE), HttpStatus.OK) :
                 new ResponseEntity<>(new ResponseDto(DogConstants.STATUS_417, DogConstants.MESSAGE_417_UPDATE), HttpStatus.EXPECTATION_FAILED);
